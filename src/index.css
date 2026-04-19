@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+.theme-professional,
+.theme-corporate,
+.theme-modern {
+  position: relative;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.theme-professional {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #111827 100%);
+}
+
+.theme-corporate {
+  background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.2), transparent 30%),
+    linear-gradient(180deg, #020f1b 0%, #0f172a 100%);
+}
+
+.theme-modern {
+  background: radial-gradient(circle at top left, rgba(236, 72, 153, 0.2), transparent 30%),
+    linear-gradient(180deg, #050816 0%, #111827 100%);
+}
+
+.theme-professional::before,
+.theme-corporate::before,
+.theme-modern::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.8;
+}
+
+.theme-professional::before {
+  background: rgba(59, 130, 246, 0.22);
+}
+
+.theme-corporate::before {
+  background: rgba(16, 185, 129, 0.22);
+}
+
+.theme-modern::before {
+  background: rgba(236, 72, 153, 0.22);
+}
