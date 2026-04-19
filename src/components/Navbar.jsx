@@ -9,6 +9,8 @@ import {
   FaCode,
   FaProjectDiagram,
   FaEnvelope,
+  FaBriefcase,
+  FaCertificate,
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
@@ -90,6 +92,8 @@ function Navbar({ activeSection, setActiveSection, theme, setTheme }) {
             {navItem("about", <FaUser />, "About")}
             {navItem("skills", <FaCode />, "Skills")}
             {navItem("projects", <FaProjectDiagram />, "Projects")}
+            {navItem("internship", <FaBriefcase />, "Internship")}
+            {navItem("certifications", <FaCertificate />, "Certifications")}
             {navItem("contact", <FaEnvelope />, "Contact")}
           </ul>
 
@@ -163,6 +167,8 @@ function Navbar({ activeSection, setActiveSection, theme, setTheme }) {
           {navItem("about", <FaUser />, "About")}
           {navItem("skills", <FaCode />, "Skills")}
           {navItem("projects", <FaProjectDiagram />, "Projects")}
+          {navItem("internship", <FaBriefcase />, "Internship")}
+          {navItem("certifications", <FaCertificate />, "Certifications")}
           {navItem("contact", <FaEnvelope />, "Contact")}
         </ul>
 
