@@ -59,16 +59,16 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
 }
 
 .page-bubble-wrapper .page-bubble {
   position: absolute;
   border-radius: 9999px;
-  background: rgba(96, 165, 250, 0.16);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  background: rgba(96, 165, 250, 0.25);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6), 0 0 50px rgba(56, 189, 248, 0.3);
   animation: page-bubble-float 8s ease-in-out infinite;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .page-bubble-wrapper .page-bubble::after {
@@ -76,7 +76,7 @@
   position: absolute;
   inset: 0;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.3), transparent 55%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4), transparent 60%);
 }
 
 .page-bubble-wrapper .bubble-a {
