@@ -1,5 +1,7 @@
 ﻿import React, { useState } from "react";
 import profile from "../assets/profile.png";
+import resume from "../assets/Khalik_Khan25_Resume.pdf";
+
 
 import {
   FaHome,
@@ -132,13 +134,14 @@ function Navbar({ activeSection, setActiveSection, theme, setTheme }) {
                 ))}
               </div>
             </div>
-            <a
-              href="/src/assets/Khalik_Khan25_Resume.pdf"
-              download
-              className="block rounded-lg bg-blue-500 py-2 text-center text-sm hover:bg-blue-600 transition"
-            >
-              Download Resume
-            </a>
+            {/* Resume Download */}
+              <a
+                href={resume}
+                download
+                className="border border-blue-400 px-6 py-2 rounded-lg hover:bg-blue-400 hover:text-black transition"
+                >
+               Download Resume
+              </a>
           </div>
         </div>
       )}
