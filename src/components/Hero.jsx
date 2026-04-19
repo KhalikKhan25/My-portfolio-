@@ -1,6 +1,6 @@
 import React from "react";
 import profile from "../assets/profile.png";
-import resume from "../assets/Khalik_Khan_Resume.pdf";
+import resume from "../assets/Khalik_Khan25_Resume.pdf";
 import { TypeAnimation } from "react-type-animation";
 
 function Hero() {

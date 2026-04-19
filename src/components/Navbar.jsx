@@ -133,7 +133,7 @@ function Navbar({ activeSection, setActiveSection, theme, setTheme }) {
               </div>
             </div>
             <a
-              href="/src/assets/Khalik_Khan_Resume.pdf"
+              href="/src/assets/Khalik_Khan25_Resume.pdf"
               download
               className="block rounded-lg bg-blue-500 py-2 text-center text-sm hover:bg-blue-600 transition"
             >
