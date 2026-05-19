@@ -1,33 +1,37 @@
 ﻿import React from "react";
-
+import soilQualityVideo from "../assets/Soil Quality Analysis.mp4";
+import modernBankingVideo from "../assets/Modern Digital Banking.mp4";
+import heartVideo from "../assets/Heart_deseas.mp4";
+import inflationAnalysis from "../assets/Inflation Analysis.mp4";
+import QuizGenerator from "../assets/Quiz Generator.mp4";
 const projects = [
   {
     title: "Power BI Dashboard - Global Inflation Analysis",
-    summary: "Designed a professional Power BI dashboard to track inflation trends, compare country-level performance, and surface key economic insights.",
+    summary: "Interactive Power BI dashboard delivering comparative inflation analysis across countries with clear KPI tracking and stakeholder-ready insights.",
     highlights: [
-      "Built interactive visualizations with filters and drill-through insights.",
-      "Applied DAX calculations to compare temporal and spatial inflation patterns.",
-      "Presented actionable recommendations for stakeholders.",
+      "Interactive visuals with slicers, drill-through and custom tooltips.",
+      "Advanced DAX measures for comparative time-series and index calculations.",
+      "Packaged insights and recommendations for executive stakeholders.",
     ],
     tools: ["Power BI", "DAX", "Excel", "SQL"],
   },
   {
     title: "Soil Quality Recommendation System",
-    summary: "Created a full-stack ML application that predicts soil quality and recommends fertilizer strategies through an intuitive web dashboard.",
+    summary: "Full-stack ML system that predicts soil health and recommends optimized fertilizer strategies via a responsive web dashboard.",
     highlights: [
-      "Trained models on soil and environmental data for high accuracy.",
-      "Delivered a Flask-based interface for recommendation delivery.",
-      "Integrated farm-level analytics for real-world usability.",
+      "Trained and validated models on multi-source agronomic datasets.",
+      "Served recommendations through a Flask API and interactive dashboard.",
+      "Enabled farm-level insights and exportable advisory reports.",
     ],
     tools: ["Python", "Flask", "scikit-learn", "Pandas"],
   },
   {
     title: "Modern Digital Banking Dashboard",
-    summary: "Developed a polished banking dashboard prototype with role-based UI, transaction summaries, and account management components.",
+    summary: "Responsive banking dashboard prototype showcasing role-based views, transaction analytics, and account management workflows.",
     highlights: [
-      "Designed a clean financial interface for users and admins.",
-      "Included authentication-ready layout and reporting sections.",
-      "Built responsive dashboard modules for account oversight.",
+      "Role-aware interfaces for customers and administrators.",
+      "Integrated analytics panels for transaction trends and reporting.",
+      "Responsive components optimized for desktop and tablet use.",
     ],
     tools: ["React", "JavaScript", "Tailwind CSS", "CSS"],
   },
@@ -53,7 +57,27 @@ const projects = [
   },
 ];
 
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+const videoMap = {
+  "Soil Quality Recommendation System": soilQualityVideo,
+  "Modern Digital Banking Dashboard": modernBankingVideo,
+  "Heart Disease Prediction App": heartVideo,
+  "Power BI Dashboard - Global Inflation Analysis": inflationAnalysis,
+  "AI Quiz Generator": QuizGenerator,
+};
+
 function Projects() {
+  const [videoAvailable, setVideoAvailable] = React.useState(() => projects.map((p) => !!videoMap[p.title]));
+
   return (
     <section id="projects" className="projects-section min-h-screen px-4 py-20 sm:px-6 sm:py-24 text-white">
       <div className="projects-decorations pointer-events-none">
@@ -69,31 +93,59 @@ function Projects() {
           </p>
         </div>
 
-        <div className="grid gap-8 xl:grid-cols-2">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group rounded-[32px] border border-slate-700 bg-slate-900/80 p-8 shadow-2xl shadow-slate-950/40 transition duration-300 hover:-translate-y-1 hover:border-cyan-400"
-            >
-              <h3 className="text-2xl font-semibold text-white mb-3">{project.title}</h3>
-              <p className="text-slate-300 mb-5">{project.summary}</p>
-              <div className="space-y-3 mb-6">
-                {project.highlights.map((highlight, highlightIndex) => (
-                  <p key={highlightIndex} className="flex gap-3 text-slate-300">
-                    <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300"></span>
-                    {highlight}
-                  </p>
-                ))}
+        <div className="grid gap-8">
+          {projects.map((project, index) => {
+            const videoSrc = videoMap[project.title] || `/videos/${slugify(project.title)}.mp4`;
+
+            return (
+              <div
+                key={index}
+                className="group rounded-[24px] border border-slate-700 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/40 transition duration-300 hover:-translate-y-1 hover:border-cyan-400"
+              >
+                <div className="flex flex-col lg:flex-row items-start gap-6">
+                  {videoAvailable[index] && (
+                    <div className="w-full lg:w-1/2">
+                      <video
+                        src={videoSrc}
+                        controls
+                        playsInline
+                        muted
+                        loop
+                        className="w-full h-auto rounded-lg bg-black"
+                        onError={() =>
+                          setVideoAvailable((prev) => {
+                            const copy = [...prev];
+                            copy[index] = false;
+                            return copy;
+                          })
+                        }
+                      />
+                    </div>
+                  )}
+
+                  <div className={`flex-1 ${videoAvailable[index] ? "lg:w-1/2" : "w-full"}`}>
+                    <h3 className="text-2xl font-semibold text-white mb-3">{project.title}</h3>
+                    <p className="text-slate-300 mb-5">{project.summary}</p>
+                    <div className="space-y-3 mb-6">
+                      {project.highlights.map((highlight, highlightIndex) => (
+                        <p key={highlightIndex} className="flex gap-3 text-slate-300">
+                          <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300"></span>
+                          {highlight}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      {project.tools.map((tool, toolIndex) => (
+                        <span key={toolIndex} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-3">
-                {project.tools.map((tool, toolIndex) => (
-                  <span key={toolIndex} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
