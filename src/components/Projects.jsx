@@ -2,7 +2,7 @@
 import soilQualityVideo from "../assets/Soil Quality Analysis.mp4";
 import modernBankingVideo from "../assets/Modern Digital Banking.mp4";
 import heartVideo from "../assets/Heart_deseas.mp4";
-import inflationAnalysis from "../assets/Inflation Analysis.mp4";
+import inflationAnalysis from "../assets/Inflation analysis.mp4";
 import QuizGenerator from "../assets/Quiz Generator.mp4";
 const projects = [
   {

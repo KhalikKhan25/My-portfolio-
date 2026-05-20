@@ -45,13 +45,13 @@ function Certifications() {
             </p>
           </div>
 
-          <div className="p-6 bg-slate-900/80 border border-slate-700 rounded-3xl shadow-xl shadow-slate-950/40">
+          {/* <div className="p-6 bg-slate-900/80 border border-slate-700 rounded-3xl shadow-xl shadow-slate-950/40">
             <h3 className="text-xl font-semibold text-white">Full-Stack Web Development</h3>
             <p className="mt-2 text-sm text-slate-400">FreeCodeCamp</p>
             <p className="mt-4 text-slate-300 leading-relaxed">
               Learned modern frontend and backend technologies including React, Node.js, and REST APIs.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
