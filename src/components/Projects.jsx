@@ -105,21 +105,24 @@ function Projects() {
                 <div className="flex flex-col lg:flex-row items-start gap-6">
                   {videoAvailable[index] && (
                     <div className="w-full lg:w-1/2">
-                      <video
-                        src={videoSrc}
-                        controls
-                        playsInline
-                        muted
-                        loop
-                        className="w-full h-auto rounded-lg bg-black"
-                        onError={() =>
-                          setVideoAvailable((prev) => {
-                            const copy = [...prev];
-                            copy[index] = false;
-                            return copy;
-                          })
-                        }
-                      />
+                      <div className="overflow-hidden rounded-[24px] bg-black shadow-inner">
+                        <video
+                          src={videoSrc}
+                          autoPlay
+                          muted
+                          playsInline
+                          loop
+                          preload="metadata"
+                          className="block w-full h-[240px] min-h-[220px] object-cover"
+                          onError={() =>
+                            setVideoAvailable((prev) => {
+                              const copy = [...prev];
+                              copy[index] = false;
+                              return copy;
+                            })
+                          }
+                        />
+                      </div>
                     </div>
                   )}
 
