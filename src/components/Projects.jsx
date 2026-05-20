@@ -76,8 +76,6 @@ const videoMap = {
 };
 
 function Projects() {
-  const [videoAvailable, setVideoAvailable] = React.useState(() => projects.map((p) => !!videoMap[p.title]));
-
   return (
     <section id="projects" className="projects-section min-h-screen px-4 py-20 sm:px-6 sm:py-24 text-white">
       <div className="projects-decorations pointer-events-none">
@@ -103,30 +101,22 @@ function Projects() {
                 className="group rounded-[24px] border border-slate-700 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/40 transition duration-300 hover:-translate-y-1 hover:border-cyan-400"
               >
                 <div className="flex flex-col lg:flex-row items-start gap-6">
-                  {videoAvailable[index] && (
-                    <div className="w-full lg:w-1/2">
-                      <div className="overflow-hidden rounded-[24px] bg-black shadow-inner">
-                        <video
-                          src={videoSrc}
-                          autoPlay
-                          muted
-                          playsInline
-                          loop
-                          preload="metadata"
-                          className="block w-full h-[240px] min-h-[220px] object-cover"
-                          onError={() =>
-                            setVideoAvailable((prev) => {
-                              const copy = [...prev];
-                              copy[index] = false;
-                              return copy;
-                            })
-                          }
-                        />
-                      </div>
+                  <div className="w-full lg:w-1/2">
+                    <div className="relative w-full h-[260px] overflow-hidden rounded-[24px] bg-black shadow-inner">
+                      <video
+                        src={videoSrc}
+                        controls
+                        autoPlay
+                        muted
+                        playsInline
+                        loop
+                        preload="metadata"
+                        className="relative z-10 block w-full h-full object-cover"
+                      />
                     </div>
-                  )}
+                  </div>
 
-                  <div className={`flex-1 ${videoAvailable[index] ? "lg:w-1/2" : "w-full"}`}>
+                  <div className="flex-1 lg:w-1/2">
                     <h3 className="text-2xl font-semibold text-white mb-3">{project.title}</h3>
                     <p className="text-slate-300 mb-5">{project.summary}</p>
                     <div className="space-y-3 mb-6">
