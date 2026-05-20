@@ -1,9 +1,9 @@
 ﻿import React from "react";
-import soilQualityVideo from "../assets/Soil Quality Analysis.mp4";
-import modernBankingVideo from "../assets/Modern Digital Banking.mp4";
-import heartVideo from "../assets/Heart_deseas.mp4";
-import inflationAnalysis from "../assets/Inflation analysis.mp4";
-import QuizGenerator from "../assets/Quiz Generator.mp4";
+const soilQualityVideo = "/videos/soil-quality-analysis.mp4";
+const modernBankingVideo = "/videos/modern-digital-banking.mp4";
+const heartVideo = "/videos/heart-deseas.mp4";
+const inflationAnalysis = "/videos/inflation-analysis.mp4";
+const QuizGenerator = "/videos/quiz-generator.mp4";
 const projects = [
   {
     title: "Power BI Dashboard - Global Inflation Analysis",
