@@ -104,15 +104,17 @@ function Projects() {
                   <div className="w-full lg:w-1/2">
                     <div className="relative w-full h-[260px] overflow-hidden rounded-[24px] bg-black shadow-inner">
                       <video
-                        src={videoSrc}
                         controls
                         autoPlay
                         muted
                         playsInline
                         loop
-                        preload="metadata"
+                        preload="auto"
                         className="relative z-10 block w-full h-full object-cover"
-                      />
+                      >
+                        <source src={videoSrc} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                   </div>
 
